@@ -1,0 +1,206 @@
+/* to do: make text shadow a class/classes of its own
+*/
+
+@font-face {
+    font-family: Korinna Bold;
+    src: url(fonts/korinna_bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Swiss Extra;
+    src: url(fonts/swiss_extra_compressed.ttf);
+	font-weight: bold;
+}
+
+@font-face {
+    font-family: Swiss Compressed;
+    src: url(fonts/swiss_compressed.otf);
+}
+
+@font-face {
+    font-family: Square721;
+    src: url(fonts/square_721.ttf);
+}
+
+body {
+	background-color: #021173;
+}
+
+img {
+	display: inline;
+	vertical-align: middle;
+}
+
+.whole-board-size {
+	width: 800px;
+	height: 600px;
+	margin: auto;
+}
+
+.main-board-size {
+	width: 800px;
+	height: 530px;
+	margin: auto;
+}
+
+.score-board-size {
+	width: 800px;
+	height: 70px;
+	margin: auto;
+}
+
+.board-container {
+	background-color: #000;
+	display: block;
+}
+
+.category-grid-container {
+	display: grid;
+ 	grid-template-columns: repeat(6, 122px);
+	grid-template-rows: 75px;
+ 	grid-gap: 10px;
+  	padding: 10px;
+}
+
+.category {
+	font-family: Swiss Compressed;
+	padding: 5px 0px;
+	background-color: #021173;
+	color: #FFF;
+	font-size: 20px;
+	letter-spacing: 1px;
+	word-wrap: break-word;
+	text-shadow: 1px 1px #000,
+		1.5px 1.5px #000,
+		2px 2px #000;
+	text-align: center;
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+
+#cat1 {
+	font-size: 20px;
+}
+
+#cat2 {
+	font-size: 28px;
+}
+
+#cat3 {
+	font-size: 20px;
+}
+
+#cat4 {
+	font-size: 16px;
+}
+
+#cat5 {
+	font-size: 18px;
+}
+
+#cat6 {
+	font-size: 18px;
+}
+
+.block-grid-container {
+	display: grid;
+ 	grid-template-columns: repeat(6, 122px);
+	grid-template-rows: repeat(5, 75px);
+ 	grid-gap: 10px;
+  	padding: 9px;
+}
+
+.block {
+	font-family: Swiss Extra;
+	padding: 6px;
+	background-color: #021173;
+	color: #DA9F57;
+	font-size: 56px;
+	text-shadow: 1px 1px #000,
+		1.5px 1.5px #000,
+		2px 2px #000,
+		2.5px 2.5px #000,
+		3px 3px #000;
+	text-align: center;
+}
+
+.clue-container {
+	background-color: #021173;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.clue {
+	font-family: Korinna Bold;
+	background-color: #021173;
+	font-size: 40px;
+	padding: 5px;
+	color: #FFFFFF;
+	text-shadow: 1px 1px #000,
+		1.5px 1.5px #000,
+		2px 2px #000,
+		2.5px 2.5px #000,
+		3px 3px #000;
+	text-align: center;
+}
+
+.daily-double-container {
+	vertical-align: middle;
+	display: none;
+}
+
+.final-jeopardy-container {
+	vertical-align: middle;
+	display: none;
+}
+
+.category-container {
+	background-color: #021173;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	font-family: Korinna Bold;
+	background-color: #021173;
+	font-size: 70px;
+	padding: 5px;
+	color: #FFFFFF;
+	text-shadow: 1px 1px #000,
+		1.5px 1.5px #000,
+		2px 2px #000,
+		2.5px 2.5px #000,
+		3px 3px #000;
+	text-align: center;
+}
+
+.audio {
+	display: none;
+}
+
+.footer {
+	background-color: #021173;
+	color: white;
+}
+
+.scores-container {
+	background-color: #021173;
+	display: block;
+}
+
+.scores-grid {
+	display: grid;
+ 	grid-template-columns: repeat(3, 1fr);
+ 	grid-gap: 10px;
+  	padding: 10px;
+}
+
+.player-score {
+	font-family: Square721;
+	padding: 5px;
+	font-size: 26px;
+	text-align: center;
+	background-color: #010101;
+	color: white;
+}

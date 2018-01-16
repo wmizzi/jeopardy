@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="An interactive game of Jeopardy">
+		<title>Jeopardy</title>
+		<link rel="stylesheet" href="styles/style.css">
+	</head>
+	<body>
+	<div class="board-container main-board-size">
+		<!--<div class="category-grid-container">
+			<div class="category" id="cat1">AUSTRALIAN PRIME MINISTERS</div>
+			<div class="category" id="cat2">NAME THE SONG</div>
+			<div class="category" id="cat3">LAKES & RIVERS</div>
+			<div class="category" id="cat4">DOUBLE DOUBLE</div>
+			<div class="category" id="cat5">INTERNATIO- NALITIES</div>
+			<div class="category" id="cat6">LONG MOVIE TITLES</div>
+		</div>-->
+		<div class="category-grid-container">
+			<div class="category" id="cat1"></div>
+			<div class="category" id="cat2"></div>
+			<div class="category" id="cat3"></div>
+			<div class="category" id="cat4"></div>
+			<div class="category" id="cat5"></div>
+			<div class="category" id="cat6"></div>
+		</div>
+
+		<div class="block-grid-container">
+			<div class="block" id=clue1_1>$400</div>
+			<div class="block" id=clue2_1>$400</div>
+			<div class="block" id=clue3_1>$400</div>
+			<div class="block" id=clue4_1>$400</div>
+			<div class="block" id=clue5_1>$400</div>
+			<div class="block" id=clue6_1>$400</div>
+			<div class="block" id=clue1_2>$800</div>
+			<div class="block" id=clue2_2>$800</div>
+			<div class="block" id=clue3_2>$800</div>
+			<div class="block" id=clue4_2>$800</div>
+			<div class="block" id=clue5_2>$800</div>
+			<div class="block" id=clue6_2>$800</div>
+			<div class="block" id=clue1_3>$1200</div>
+			<div class="block" id=clue2_3>$1200</div>
+			<div class="block" id=clue3_3>$1200</div>
+			<div class="block" id=clue4_3>$1200</div>
+			<div class="block" id=clue5_3>$1200</div>
+			<div class="block" id=clue6_3>$1200</div>
+			<div class="block" id=clue1_4>$1600</div>
+			<div class="block" id=clue2_4>$1600</div>
+			<div class="block" id=clue3_4>$1600</div>
+			<div class="block" id=clue4_4>$1600</div>
+			<div class="block" id=clue5_4>$1600</div>
+			<div class="block" id=clue6_4>$1600</div>
+			<div class="block" id=clue1_5>$2000</div>
+			<div class="block" id=clue2_5>$2000</div>
+			<div class="block" id=clue3_5>$2000</div>
+			<div class="block" id=clue4_5>$2000</div>
+			<div class="block" id=clue5_5>$2000</div>
+			<div class="block" id=clue6_5>$2000</div>
+		</div>
+	</div>
+
+	<div class="clue-container main-board-size">
+		<div class="clue">
+		</div>
+	</div>
+
+	<div class="daily-double-container  main-board-size">
+		<img src="images/daily_double.jpg" alt="Daily Double">
+		<audio src="sounds/daily_double.wav" class="audio" id="daily-double-sound"></audio>
+	</div>
+
+	<div class="final-jeopardy-container  main-board-size">
+		<img src="images/final_jeopardy.jpg" alt="Final Jeopardy">
+	</div>
+
+	<div class="category-container main-board-size">
+	</div>
+
+	<div class="scores-container score-board-size">
+		<div class="scores-grid">
+			<div class="player-score">
+			</div>
+			<div class="player-score">
+			</div>
+			<div class="player-score">
+			</div>
+		</div>
+	</div>
+
+	<footer class="footer">
+		<script src="jeopardy.js"></script>
+	</footer>
+
+	</body>
+</html>
