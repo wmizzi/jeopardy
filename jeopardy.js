@@ -1,9 +1,9 @@
 var currentBlock = null;
 
 import Player from "./player.js";
-import Game from "./game.js"
-import * as boardSections from "./board-sections.js"
-import * as sounds from "./sounds.js"
+import Game from "./game.js";
+import * as boardSections from "./board-sections.js";
+import * as sounds from "./sounds.js";
 // create global variable that is populated by blocks with the dollar value of
 // a block - then, this value can be accessed and added or subtracted with a
 // single keypress
@@ -83,12 +83,12 @@ window.onkeypress = function (keyPressEvent) {
 function enterCategoryNames() {
 	for (let i = 0; i < boardSections.CATEGORYBLOCKARRAY.length; i++) {
 		var upperCaseCategory = Game.categories[i].toUpperCase();
-		boardSections.CATEGORYBLOCKARRAY[i].innerHTML = upperCaseCategory
+		boardSections.CATEGORYBLOCKARRAY[i].innerHTML = upperCaseCategory;
 	}
 }
 
 function enterFinalJeopardy() {
-	boardSections.CLUEBOARD.style.display = "none";
+	boardSections.CLUECARD.style.display = "none";
 	boardSections.DAILYDOUBLECARD.style.display = "none";
 	boardSections.FINALJEOPARDYCARD.style.display = "flex";
 	currentBlock = Game.final_jeopardy;
@@ -104,7 +104,7 @@ function showFinalJeopardyCategory() {
 function showFinalJeopardyClue() {
 	var upperCaseClue = Game.final_jeopardy.clue.toUpperCase();
 	boardSections.CLUECARD.innerHTML = upperCaseClue;
-	boardSections.CLUEBOARD.style.display = "flex";
+	boardSections.CLUECARD.style.display = "flex";
 	boardSections.FINALJEOPARDYBOARD.style.display = "none";
 }
 
@@ -135,7 +135,7 @@ function showClue(block) {
 		sounds.DAILYDOUBLE.play();
 	} else {
 		// show .clue-container div
-		boardSections.CLUEBOARD.style.display = "flex";
+		boardSections.CLUECARD.style.display = "flex";
 	}
 	block.innerHTML = "";
 	// remove text from respective .block div on the board
@@ -143,7 +143,7 @@ function showClue(block) {
 
 function showDailyDoubleClue() {
 	boardSections.DAILYDOUBLECARD.style.display = "none";
-	boardSections.CLUEBOARD.style.display = "flex";
+	boardSections.CLUECARD.style.display = "flex";
 }
 
 function showSolution(block) {
@@ -160,8 +160,8 @@ function returnToBoard() {
 	// show .board-container div
 	boardSections.GAMEBOARD.style.display = "block";
 
-	// hide .clue-container div
-	boardSections.CLUEBOARD.style.display = "none";
+	// hide .clue div
+	boardSections.CLUECARD.style.display = "none";
 
 	boardSections.DAILYDOUBLECARD.style.display = "none";
 }

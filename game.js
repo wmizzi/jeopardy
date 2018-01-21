@@ -42,4 +42,4 @@ export default {
 	clue6_5:	{value: 1000, dailydouble: false, solution: "Alexander Shulgin", clue: "Passed away in 2014, this man was heralded as the 'Godfather of Ecstasy'"},
 
 	final_jeopardy:	{category: "International Sports", solution: "Le Tour de France", clue: "First held in 1913, this event's inaugural winner was Maurice Garin with a time of 94 hours, 33 minutes, 14 seconds"},
-}
+};
