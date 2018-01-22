@@ -1,15 +1,47 @@
+/*
+
+Main Jeopardy! JavaScript file.
+
+Sets up and executes a Jeopardy! game from start to finish. Handles the dynamic
+display of the board, clues, scores, images, etc.
+
+
+Requires:
+
+player, game, board-sections, sounds
+
+
+Modifications required:
+
+Functions need to be named more logically, and their behaviour reviewed and
+simplified if necessary. Also, ideally, they should reside in modules, and not
+in this script
+
+Better comments on the behaviour of each operation is required.
+
+
+Future improvements:
+
+Revisit the way clue blocks on the main board are associated with the respective
+game data to display the clue text, and incorporate 'value' data retrieval for
+easier scorekeeping.
+
+Incorporate a splash screen to use for breaks in play.
+
+Try to emulate the category reveal sequence at the start of each round,
+including animation effects of splash screen (fades and slides).
+
+Broaden the behaviour of clues - they can be images, sounds or videos. This will
+require reworking of the clue object.
+
+*/
+
 var currentBlock = null;
 
 import Player from "./player.js";
 import Game from "./game.js";
 import * as boardSections from "./board-sections.js";
 import * as sounds from "./sounds.js";
-// create global variable that is populated by blocks with the dollar value of
-// a block - then, this value can be accessed and added or subtracted with a
-// single keypress
-
-// to do - make a splash screen
-// amend clue object - image? true or false, and treated accordingly with the creation of an image tag. perhaps consider also putting text clues into created <p> tags
 
 //-------CREATION OF EVENT LISTENERS-------------------------------------------
 
@@ -18,9 +50,9 @@ for (let i = 0; i < boardSections.BLOCKS.length; i++) {
 	boardSections.BLOCKS[i].addEventListener("click", function() {showClue(boardSections.BLOCKS[i]);}, false);
 }
 
-boardSections.DAILYDOUBLECARD.addEventListener("click", showDailyDoubleClue, false);
-boardSections.FINALJEOPARDYCARD.addEventListener("click", showFinalJeopardyCategory, false);
-boardSections.FINALJEOPARDYBOARD.addEventListener("click", showFinalJeopardyClue, false);
+boardSections.DAILYDOUBLEIMGCARD.addEventListener("click", showDailyDoubleClue, false);
+boardSections.FINALJEOPARDYIMGCARD.addEventListener("click", showFinalJeopardyCategory, false);
+boardSections.FINALJEOPARDYCATCARD.addEventListener("click", showFinalJeopardyClue, false);
 
 //-----------------------------------------------------------------------------
 //------BOARD SETUP------------------------------------------------------------
@@ -89,23 +121,25 @@ function enterCategoryNames() {
 
 function enterFinalJeopardy() {
 	boardSections.CLUECARD.style.display = "none";
-	boardSections.DAILYDOUBLECARD.style.display = "none";
-	boardSections.FINALJEOPARDYCARD.style.display = "flex";
+	boardSections.DAILYDOUBLEIMGCARD.style.display = "none";
+	boardSections.FINALJEOPARDYIMGCARD.style.display = "flex";
 	currentBlock = Game.final_jeopardy;
 }
 
 function showFinalJeopardyCategory() {
-	boardSections.FINALJEOPARDYCARD.style.display = "none";
+	boardSections.FINALJEOPARDYIMGCARD.style.display = "none";
 	var upperCaseCategory = currentBlock.category.toUpperCase();
-	boardSections.FINALJEOPARDYBOARD.innerHTML = upperCaseCategory;
-	boardSections.FINALJEOPARDYBOARD.style.display = "flex";
+	boardSections.FINALJEOPARDYCATCARD.innerHTML = upperCaseCategory;
+	boardSections.FINALJEOPARDYCATCARD.style.display = "flex";
+	sounds.REVEALDING.play();
 }
 
 function showFinalJeopardyClue() {
 	var upperCaseClue = Game.final_jeopardy.clue.toUpperCase();
 	boardSections.CLUECARD.innerHTML = upperCaseClue;
 	boardSections.CLUECARD.style.display = "flex";
-	boardSections.FINALJEOPARDYBOARD.style.display = "none";
+	boardSections.FINALJEOPARDYCATCARD.style.display = "none";
+	sounds.REVEALDING.play();
 }
 
 function checkAllQuestionsComplete() {
@@ -120,48 +154,34 @@ function checkAllQuestionsComplete() {
 function showClue(block) {
 
 	currentBlock = block;
-
-	// Make clue text all caps - string.toUpperCase()
 	var upperCaseClue = Game[block.id].clue.toUpperCase();
 
-	// Insert clue text into .clue div
 	boardSections.CLUECARD.innerHTML = upperCaseClue;
-
-	// hide .board-container div
 	boardSections.GAMEBOARD.style.display = "none";
 
 	if (Game[block.id].dailydouble == true) {
-		boardSections.DAILYDOUBLECARD.style.display = "flex";
+		boardSections.DAILYDOUBLEIMGCARD.style.display = "flex";
 		sounds.DAILYDOUBLE.play();
 	} else {
-		// show .clue-container div
 		boardSections.CLUECARD.style.display = "flex";
 	}
+
 	block.innerHTML = "";
 	// remove text from respective .block div on the board
 }
 
 function showDailyDoubleClue() {
-	boardSections.DAILYDOUBLECARD.style.display = "none";
+	boardSections.DAILYDOUBLEIMGCARD.style.display = "none";
 	boardSections.CLUECARD.style.display = "flex";
 }
 
 function showSolution(block) {
-
-	// Make clue text all caps - string.toUpperCase()
 	var upperCaseSolution = Game[block.id].solution.toUpperCase();
-
-	// Insert clue text into .clue div
 	boardSections.CLUECARD.innerHTML = upperCaseSolution;
 }
 
 function returnToBoard() {
-
-	// show .board-container div
 	boardSections.GAMEBOARD.style.display = "block";
-
-	// hide .clue div
 	boardSections.CLUECARD.style.display = "none";
-
-	boardSections.DAILYDOUBLECARD.style.display = "none";
+	boardSections.DAILYDOUBLEIMGCARD.style.display = "none";
 }

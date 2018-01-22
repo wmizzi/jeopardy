@@ -1,5 +1,15 @@
-/* to do: make text shadow a class/classes of its own
+/*
+
+Stylesheet to accompany the gamemaker.html file.
+
+This file needs organisation. Items need to be grouped logically. Consider
+breaking things like text-shadow into their own style objects. A greater
+understanding of style attributes is needed also - many are potentially
+redundant or not functioning as the author thinks they do.
+
 */
+
+/* == Fonts =================================================== */
 
 @font-face {
     font-family: Korinna Bold;
@@ -23,14 +33,17 @@
     src: url(fonts/square_721.ttf);
 }
 
+/* == Tag Styles =================================================== */
+
 body {
 	background-color: #021173;
 }
 
 img {
-	display: none;
 	vertical-align: middle;
 }
+
+/* ================================================================== */
 
 .whole-board-size {
 	width: 800px;
@@ -126,7 +139,7 @@ img {
 	text-align: center;
 }
 
-.clue {
+.clue-card {
 	display: none;
 	font-family: Korinna Bold;
 	background-color: #021173;
@@ -144,19 +157,17 @@ img {
 	align-items: center;
 }
 
-.daily-double-container {
-	vertical-align: middle;
+#daily-double-img-card {
 	display: none;
 }
 
-.final-jeopardy-container {
-	vertical-align: middle;
+#final-jeopardy-img-card {
 	display: none;
 }
 
-.category-container {
+.category-card {
 	background-color: #021173;
-	display: none;
+	box-sizing: border-box;
 	justify-content: center;
 	align-items: center;
 	font-family: Korinna Bold;
@@ -170,6 +181,14 @@ img {
 		2.5px 2.5px #000,
 		3px 3px #000;
 	text-align: center;
+}
+
+#display-category-card {
+	display: none;
+}
+
+#final-jeopardy-category-card {
+	display: none;
 }
 
 .audio {

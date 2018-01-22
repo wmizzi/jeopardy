@@ -1,3 +1,14 @@
+<!--
+
+Main HTML file for Jeopardy! Game.
+
+A bare structure for the Javascript code to populate and manipulate. The
+structure is in 3 basic sections - the main clue board, a set of 'cards', which
+display in place of the main board depending on the game stage and clue
+selected, and the scoreboard, which is generally always visible.
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -8,7 +19,7 @@
 	</head>
 	<body>
 
-<!--========================================================================-->
+<!--== Board Structure =====================================================-->
 
 	<div class="board-container main-board-size">
 		<div class="category-grid-container">
@@ -54,24 +65,50 @@
 		</div>
 	</div>
 
-<!--========================================================================-->
+<!--== Dynamic 'Cards' =====================================================-->
 
-	<div class="clue main-board-size">
+	<!-- Text 'Cards' ---------------------------------------->
+
+	<div class="clue-card main-board-size">
 	</div>
 
-	<div class="daily-double-container  main-board-size">
-		<img src="images/daily_double.jpg" alt="Daily Double">
-		<audio src="sounds/daily_double.wav" class="audio" id="daily-double-sound"></audio>
+	<div class="category-card main-board-size" id="display-category-card">
 	</div>
 
-	<img class="final-jeopardy-card main-board-size" src="images/final_jeopardy.jpg" alt="Final Jeopardy">
-
-	<!--<div class="final-jeopardy-container  main-board-size">
-		<img src="images/final_jeopardy.jpg" alt="Final Jeopardy">
-	</div>-->
-
-	<div class="category-container main-board-size">
+	<div class="category-card main-board-size" id="final-jeopardy-category-card">
 	</div>
+
+	<!--Image 'Cards' ---------------------------------------->
+
+	<!--   for a future feature - splash screen/category intros:
+
+	<img class="img-card main-board-size" id="splash-img-card">
+
+	-->
+
+	<img class="img-card main-board-size" id="daily-double-img-card" src="images/daily_double.jpg" alt="Daily Double">
+
+	<img class="img-card main-board-size" id="final-jeopardy-img-card" src="images/final_jeopardy.jpg" alt="Final Jeopardy">
+
+	<!--   for a future feature - image and video clues:
+
+	<img class="img-card main-board-size" id="clue-img-card">
+	<video class="video-card main-board-size" id="clue-video-card"></video>
+
+	-->
+
+	<!-- Audio accompaniments -------------------------------->
+
+	<audio src="sounds/daily_double.mp3" class="audio" id="daily-double-sound"></audio>
+	<audio src="sounds/reveal_ding.mp3" class="audio" id="reveal-ding-sound"></audio>
+
+	<!--   for a future feature - trigger the timeout sound:
+
+	<audio src="sounds/timeout.mp3" class="audio" id="timeout-sound"></audio>
+
+	-->
+
+<!--== Scoreboard Structure ================================================-->
 
 	<div class="scores-container score-board-size">
 		<div class="scores-grid">
@@ -84,7 +121,7 @@
 		</div>
 	</div>
 
-<!--========================================================================-->
+<!--== Footer ==============================================================-->
 
 	<footer class="footer">
 		<script type="module" src="jeopardy.js"></script>

@@ -1,6 +1,29 @@
-// This file sets up a game variable with all the data unique to this game in terms of questions.
-// 'value' however, is not really unique to a game, but the same for all games, so consider making it part
-// of the non-game specific code.
+/*
+
+Game object.
+
+An object that holds the unique question data for a given game.
+
+
+Modifications required:
+
+Structure of game data needs revision. Currently not ideal, and does not
+incorporate both Jeopardy! and Double Jeopardy! rounds. Consider some sort of
+hierachy (eg. game -> double jeopardy round -> category 1 -> clue 3). Consider
+also the association of a DOM element 'block' to the clue data - is there a
+better way to do this?
+
+
+Future improvements:
+
+Each clue's 'value' property is held here, however, this is not really unique
+to a game, but the same for all games, so consider making it part of the main
+code.
+
+Store many games in other files (JSON?), then allow the user to select a game,
+loading that file's data into here for play.
+
+*/
 
 export default {
 	categories:	["Make It A Double-Letter Word", "Bard 'M'en", "Nail Polish Colours", "The Oscar for Best Animated Feature", "Construction", "Recreational Drugs"],
