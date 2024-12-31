@@ -1,0 +1,3 @@
+css - reset or normalise
+	- set up a strategy for consistency
+	- css grid plus flex box

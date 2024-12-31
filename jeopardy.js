@@ -17,7 +17,7 @@ Functions need to be named more logically, and their behaviour reviewed and
 simplified if necessary. Also, ideally, they should reside in modules, and not
 in this script
 
-Better comments on the behaviour of each operation is required.
+Better comments on the behaviour of each operation required.
 
 
 Future improvements:
@@ -73,22 +73,22 @@ enterCategoryNames();
 window.onkeypress = function (keyPressEvent) {
 
 	if (keyPressEvent.key == "q") {
-		jarrod.incrementScore();
+		jarrod.incrementScore(Game[currentBlock.id].value);
 
 	} else if (keyPressEvent.key == "a") {
-		jarrod.decrementScore();
+		jarrod.decrementScore(Game[currentBlock.id].value);
 
 	} else if (keyPressEvent.key == "w") {
-		harry.incrementScore();
+		harry.incrementScore(Game[currentBlock.id].value);
 
 	} else if (keyPressEvent.key == "s") {
-		harry.decrementScore();
+		harry.decrementScore(Game[currentBlock.id].value);
 
 	} else if (keyPressEvent.key == "e") {
-		aravinda.incrementScore();
+		aravinda.incrementScore(Game[currentBlock.id].value);
 
 	} else if (keyPressEvent.key == "d") {
-		aravinda.decrementScore();
+		aravinda.decrementScore(Game[currentBlock.id].value);
 
 	} else if (keyPressEvent.key == "p") {
 		showSolution(currentBlock);

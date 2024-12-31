@@ -41,16 +41,18 @@ export default function Player(playerName, playerNumber) {
 		this.displayScore();
 	};
 
-	this.incrementScore = function() {
-		this.score += 200;
+	// Increments the Player's 'score' property by the amount passed through
+	this.incrementScore = function(value) {
+		this.score += value;
 		if (this.score >= 0) {
 			this.makeTextWhite();
 		}
 		this.displayScore();
 	};
 
-	this.decrementScore = function() {
-		this.score -= 200;
+	// Decrements the Player's 'score' property by the amount passed through
+	this.decrementScore = function(value) {
+		this.score -= value;
 		if (this.score < 0) {
 			this.makeTextRed();
 		}
